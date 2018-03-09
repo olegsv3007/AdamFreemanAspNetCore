@@ -1,0 +1,33 @@
+﻿@model Result;
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Result</title>
+    <link rel="stylesheet" asp-href-include="lib/bootstrap/dist/css/*.min.css"/>
+</head>
+<body class="panel-body">
+    <table class="table table-bordered table-striped table-condensed">
+        <tr>
+            <th>Controller:</th>
+            <td>@Model.Controller</td>
+        </tr>
+        <tr>
+            <th>Action:</th>
+            <td>@Model.Action</td>
+        </tr>
+        @foreach(var item in Model.Data)
+        {
+            <tr>
+                <th>@item.Key :</th>
+                <td>@item.Value</td>
+            </tr>
+        }
+    </table>
+    <p>URL: @Url.Action("Index", "Home", new { id = 100})</p>
+</body>
+</html>
